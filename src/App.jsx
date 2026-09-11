@@ -1,7 +1,7 @@
- import Dashboard from './pages/Dashboard'
+import Cadastro from './pages/Cadastro'
 
 function App() {
-  return <Dashboard />
+  return <Cadastro />
 }
 
 export default App
