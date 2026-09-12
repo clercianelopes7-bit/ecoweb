@@ -1,0 +1,97 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f1f8e9;
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 390px;
+  padding: 40px 32px;
+  box-sizing: border-box;
+}
+
+.login-logo {
+  display: block;
+  width: 130px;
+  max-width: 60%;
+  margin: 0 auto 55px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.login-field label {
+  margin-bottom: 7px;
+  font-size: 15px;
+  color: #1b5e20;
+}
+
+.login-field input {
+  height: 48px;
+  padding: 0 15px;
+  border: none;
+  border-radius: 12px;
+  background: #fff1f3;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.22);
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.login-field input:focus {
+  box-shadow: 0 0 0 2px #2e7d32;
+}
+
+.btn-entrar,
+.btn-criar-conta {
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-entrar {
+  margin-top: 8px;
+  background: #176b16;
+  color: white;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.22);
+}
+
+.btn-criar-conta {
+  margin-top: 18px;
+  background: #fff1f3;
+  color: #176b16;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.22);
+}
+
+.btn-entrar:hover {
+  background: #0f5710;
+}
+
+.btn-criar-conta:hover {
+  background: #fbe5e9;
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 30px 28px;
+  }
+
+  .login-logo {
+    margin-bottom: 45px;
+  }
+}
