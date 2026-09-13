@@ -1,0 +1,178 @@
+.conteudos-page {
+  min-height: 100vh;
+  background: #f7f8f2;
+  font-family: Arial, sans-serif;
+  color: #1f4d2e;
+}
+
+.conteudos-header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  background: #f7f8f2;
+  border-bottom: 1px solid #dfe7d8;
+}
+
+.menu-icon,
+.profile-icon {
+  font-size: 26px;
+  color: #1f4d2e;
+}
+
+.header-logo img {
+  width: 125px;
+  display: block;
+}
+
+.conteudos-container {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 18px 16px 30px;
+  box-sizing: border-box;
+}
+
+.conteudos-intro {
+  margin-bottom: 14px;
+}
+
+.conteudos-intro h1 {
+  margin: 0 0 5px;
+  font-size: 24px;
+  color: #1f5e36;
+}
+
+.conteudos-intro p {
+  margin: 0;
+  font-size: 15px;
+  color: #444;
+}
+
+.conteudos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.conteudo-card {
+  display: flex;
+  gap: 16px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+.conteudo-imagem {
+  width: 95px;
+  min-width: 95px;
+  height: 95px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 47px;
+}
+
+.reciclagem {
+  background: #2e8b57;
+}
+
+.agua {
+  background: #b9df79;
+}
+
+.energia {
+  background: #62b64f;
+}
+
+.conteudo-info {
+  flex: 1;
+}
+
+.conteudo-info h2 {
+  margin: 0 0 7px;
+  font-size: 17px;
+  line-height: 1.2;
+  color: #176238;
+}
+
+.conteudo-info p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.35;
+  color: #333;
+}
+
+.conteudo-info button {
+  padding: 8px 16px;
+  border: 1.5px solid #176238;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #176238;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.conteudo-info button:hover {
+  background: #eef8ed;
+}
+
+.dica-sustentavel {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 17px;
+  border-radius: 10px;
+  background: #e5f3c8;
+  border: 1px solid #c8df9c;
+}
+
+.dica-icone {
+  font-size: 36px;
+}
+
+.dica-sustentavel h2 {
+  margin: 0 0 5px;
+  font-size: 16px;
+  color: #23643b;
+}
+
+.dica-sustentavel p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+@media (max-width: 480px) {
+  .conteudos-header {
+    padding: 0 15px;
+  }
+
+  .header-logo img {
+    width: 110px;
+  }
+
+  .conteudo-card {
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .conteudo-imagem {
+    width: 84px;
+    min-width: 84px;
+    height: 84px;
+    font-size: 40px;
+  }
+
+  .conteudo-info h2 {
+    font-size: 16px;
+  }
+
+  .conteudo-info p {
+    font-size: 13px;
+  }
+}
