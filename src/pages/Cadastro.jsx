@@ -1,4 +1,5 @@
 import './Cadastro.css'
+import { Link } from 'react-router-dom'
 import logoEcoWeb from '../assets/Logo-ecoweb.png.jpeg'
 function Cadastro() {
   return (
@@ -56,9 +57,11 @@ function Cadastro() {
           </button>
         </form>
 
-        <p className="login-link">
-          Já possui uma conta? <a href="#">Entrar</a>
-        </p>
+       
+<p className="login-link">
+  Já possui uma conta? <Link to="/login">Entrar</Link>
+</p>
+
       </section>
     </main>
   )

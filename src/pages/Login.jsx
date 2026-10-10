@@ -1,7 +1,10 @@
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 import logoEcoWeb from "../assets/Logo-ecoweb.png.jpeg";
 
 function Login() {
+  const navigate = useNavigate();
+
   return (
     <div className="login-page">
       <div className="login-container">
@@ -34,9 +37,13 @@ function Login() {
             Entrar
           </button>
 
-          <button type="button" className="btn-criar-conta">
-            Criar conta
-          </button>
+          <button
+  type="button"
+  className="btn-criar-conta"
+  onClick={() => navigate("/cadastro")}
+>
+  Criar conta
+</button>
         </form>
       </div>
     </div>

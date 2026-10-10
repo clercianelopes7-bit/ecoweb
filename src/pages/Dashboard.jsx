@@ -1,11 +1,21 @@
  import "./Dashboard.css";
+ import { useNavigate } from "react-router-dom";
 import logoEcoWeb from "../assets/Logo-ecoweb.png.jpeg";
 
 function Dashboard() {
+  const navigate = useNavigate();
+
   return (
     <div className="dashboard">
       <header className="dashboard-header">
-        <button className="menu-button">☰</button>
+       <button
+  type="button"
+  className="menu-button"
+  onClick={() => navigate("/conteudos")}
+  aria-label="Ir para conteúdos educacionais"
+>
+  ☰
+</button>
 
         <div className="logo-area">
           <img src={logoEcoWeb} alt="EcoWeb" />
