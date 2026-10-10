@@ -1,9 +1,33 @@
 import "./Conteudos.css";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logoEcoWeb from "../assets/Logo-ecoweb.png.jpeg";
 
 function Conteudos() {
   const navigate = useNavigate();
+  const [conteudos, setConteudos] = useState([]);
+const [carregando, setCarregando] = useState(true);
+const [erro, setErro] = useState("");
+useEffect(() => {
+  async function buscarConteudos() {
+    try {
+      const resposta = await fetch("http://localhost:3000/api/conteudos");
+
+      if (!resposta.ok) {
+        throw new Error("Não foi possível carregar os conteúdos.");
+      }
+
+      const dados = await resposta.json();
+      setConteudos(dados);
+    } catch (error) {
+      setErro(error.message);
+    } finally {
+      setCarregando(false);
+    }
+  }
+
+  buscarConteudos();
+}, []);
 
   return (
     <div className="conteudos-page">
@@ -33,39 +57,25 @@ function Conteudos() {
         </section>
 
         <section className="conteudos-lista">
-          <article className="conteudo-card">
-            <div className="conteudo-imagem reciclagem">♻️</div>
+          {carregando ? (
+  <p>Carregando conteúdos...</p>
+) : erro ? (
+  <p role="alert">{erro}</p>
+) : conteudos.length === 0 ? (
+  <p>Nenhum conteúdo cadastrado ainda.</p>
+) : (
+  conteudos.map((conteudo) => (
+    <article className="conteudo-card" key={conteudo.id_conteudo}>
+      <div className="conteudo-imagem reciclagem">🌱</div>
 
-            <div className="conteudo-info">
-              <h2>Reciclagem: um hábito que transforma</h2>
-              <p>
-                Saiba como separar corretamente os resíduos e reduzir impactos.
-              </p>
-              <button type="button">Ler mais ›</button>
-            </div>
-          </article>
+      <div className="conteudo-info">
+        <h2>{conteudo.titulo}</h2>
+        <p>{conteudo.descricao}</p>
+      </div>
+    </article>
+  ))
+)}
 
-          <article className="conteudo-card">
-            <div className="conteudo-imagem agua">🚰</div>
-
-            <div className="conteudo-info">
-              <h2>Economia de Água</h2>
-              <p>Dicas simples para reduzir o consumo de água no dia a dia.</p>
-              <button type="button">Ler mais ›</button>
-            </div>
-          </article>
-
-          <article className="conteudo-card">
-            <div className="conteudo-imagem energia">☀️</div>
-
-            <div className="conteudo-info">
-              <h2>Energia Solar: o futuro sustentável</h2>
-              <p>
-                Conheça os benefícios da energia solar para o planeta e para você.
-              </p>
-              <button type="button">Ler mais ›</button>
-            </div>
-          </article>
         </section>
 
         <section className="dica-sustentavel">
