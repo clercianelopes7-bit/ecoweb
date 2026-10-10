@@ -1,9 +1,39 @@
  import "./Dashboard.css";
- import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logoEcoWeb from "../assets/Logo-ecoweb.png.jpeg";
-
 function Dashboard() {
   const navigate = useNavigate();
+  const [totalAcoes, setTotalAcoes] = useState(0);
+const [totalConteudos, setTotalConteudos] = useState(0);
+const [carregando, setCarregando] = useState(true);
+const [erro, setErro] = useState("");
+useEffect(() => {
+  async function carregarDashboard() {
+    try {
+      const [respostaAcoes, respostaConteudos] = await Promise.all([
+        fetch("http://localhost:3000/api/acoes"),
+        fetch("http://localhost:3000/api/conteudos"),
+      ]);
+
+      if (!respostaAcoes.ok || !respostaConteudos.ok) {
+        throw new Error("Não foi possível carregar os dados do Dashboard.");
+      }
+
+      const acoes = await respostaAcoes.json();
+      const conteudos = await respostaConteudos.json();
+
+      setTotalAcoes(acoes.length);
+      setTotalConteudos(conteudos.length);
+    } catch (error) {
+      setErro(error.message);
+    } finally {
+      setCarregando(false);
+    }
+  }
+
+  carregarDashboard();
+}, []);
 
   return (
     <div className="dashboard">
@@ -29,14 +59,16 @@ function Dashboard() {
         <h1>Bem-vindo ao EcoWeb!</h1>
 
         <section className="resumo-card verde">
-          <span>Ações Registradas</span>
-          <strong>🌿 12</strong>
-        </section>
+  <span>Ações Registradas</span>
+  <strong>🌿 {carregando ? "..." : erro ? "—" : totalAcoes}</strong>
+</section>
 
-        <section className="resumo-card claro">
-          <span>Conteúdos Disponíveis</span>
-          <strong>📖 8</strong>
-        </section>
+<section className="resumo-card claro">
+  <span>Conteúdos Disponíveis</span>
+  <strong>📖 {carregando ? "..." : erro ? "—" : totalConteudos}</strong>
+</section>
+
+{erro && <p role="alert">{erro}</p>}
 
         <section className="impacto-resumo">
           <div>
