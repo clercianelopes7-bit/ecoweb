@@ -1,10 +1,10 @@
-
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import Login from './pages/Login'
 import Cadastro from './pages/Cadastro'
 import Dashboard from './pages/Dashboard'
 import Conteudos from './pages/Conteudos'
+import RegistrarAcao from './pages/RegistrarAcao'
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/conteudos" element={<Conteudos />} />
+        <Route path="/registrar-acao" element={<RegistrarAcao />} />
       </Routes>
     </BrowserRouter>
   )
