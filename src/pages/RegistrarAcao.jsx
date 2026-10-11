@@ -40,7 +40,7 @@ function RegistrarAcao() {
       setDescricao("");
       setImpactoAmbiental("");
     } catch (erro) {
-      setMensagem(Erro: ${erro.message});
+      setMensagem(`Erro: ${erro.message}`);
     } finally {
       setEnviando(false);
     }
